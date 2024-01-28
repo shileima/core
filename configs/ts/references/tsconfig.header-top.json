@@ -1,0 +1,9 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "../../../packages/header-top/src",
+    "outDir": "../../../packages/header-top/lib"
+  },
+  "include": ["../../../packages/header-top/src"],
+  "exclude": ["../../../packages/header-top/__mocks__"]
+}

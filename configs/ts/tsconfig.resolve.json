@@ -124,7 +124,11 @@
       "@opensumi/cli-engine": ["../../../tools/cli-engine/src/index.ts"],
       "@opensumi/cli-engine/lib/*": ["../../../tools/cli-engine/src/*"],
       "@opensumi/ide-custom-left": ["../packages/custom-left/src/index.ts"],
-      "@opensumi/ide-custom-left/lib/*": ["../packages/custom-left/src/*"]
+      "@opensumi/ide-custom-left/lib/*": ["../packages/custom-left/src/*"],
+      "@opensumi/ide-project-init": ["../packages/project-init/src/index.ts"],
+      "@opensumi/ide-project-init/lib/*": ["../packages/project-init/src/*"],
+      "@opensumi/ide-header-top": ["../packages/header-top/src/index.ts"],
+      "@opensumi/ide-header-top/lib/*": ["../packages/header-top/src/*"]
     }
   }
 }

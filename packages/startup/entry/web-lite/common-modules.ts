@@ -9,6 +9,7 @@ import { ExtensionModule } from '@opensumi/ide-extension/lib/browser';
 import { ExtensionStorageModule } from '@opensumi/ide-extension-storage/lib/browser';
 import { FileServiceClientModule } from '@opensumi/ide-file-service/lib/browser';
 import { FileTreeNextModule } from '@opensumi/ide-file-tree-next/lib/browser';
+import { CustomToolbarModule } from '@opensumi/ide-header-top/lib/browser';
 import { KeymapsModule } from '@opensumi/ide-keymaps/lib/browser';
 import { LogModule } from '@opensumi/ide-logs/lib/browser';
 import { MainLayoutModule } from '@opensumi/ide-main-layout/lib/browser';
@@ -29,6 +30,7 @@ import { WorkspaceModule } from '@opensumi/ide-workspace/lib/browser';
 import { WorkspaceEditModule } from '@opensumi/ide-workspace-edit/lib/browser';
 
 import { BrowserFileSchemeModule } from './lite-module/overrides/browser-file-scheme';
+
 
 export const CommonBrowserModules: ConstructorOf<BrowserModule>[] = [
   FileServiceClientModule,
@@ -60,4 +62,5 @@ export const CommonBrowserModules: ConstructorOf<BrowserModule>[] = [
   ExtensionModule,
   CustomLeftModule,
   BuitinServicesSampleModule,
+  CustomToolbarModule,
 ];

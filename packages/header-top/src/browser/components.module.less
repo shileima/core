@@ -1,0 +1,86 @@
+@foreground-color: var(--foreground);
+@background-color: #252526;
+@text-color: #d7dbde;
+
+.main_site_title {
+  font-size: medium;
+  font-weight: bold;
+  width: 48px;
+}
+
+.components_wrap {
+  padding: 5px;
+  color: @foreground-color;
+
+  & :global(.sumi_antd-btn) {
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  & :global(.sumi_antd-modal-content) {
+    background-color: @background-color;
+  }
+
+  & :global(.sumi_antd-modal-title) {
+    background-color: @background-color;
+    color: @text-color;
+  }
+
+  & :global(.sumi_antd-form-item-label > label) {
+    color: @text-color;
+  }
+}
+
+.title {
+  color: @foreground-color;
+}
+.flex_box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+// The `.{prefix}-dropdown-hidden` class do not be updated immediately on OpenSumi.
+& :global(.sumi_antd-slide-up-leave-active) {
+  display: none;
+}
+.top_container {
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.top_left {
+  display: flex;
+  align-items: center;
+  .components_wrap {
+    width: auto;
+    display: flex;
+    align-items: center;
+  }
+  .project_dropdown_tab {
+    width: '300px';
+    background: '#fff';
+    border: '1px solid rgba(0,0,0,.2)';
+    padding: '10px';
+  }
+  .project_btn_box {
+    margin-left: 5px;
+    button {
+      color: var(--activityBar-inactiveForeground);
+      line-height: 13px;
+    }
+  }
+}
+
+.top_center {
+  display: flex;
+  align-items: center;
+  .icon {
+    padding: 0 5px 0 0;
+  }
+}
+
+.top_right {
+  display: flex;
+  align-items: center;
+}

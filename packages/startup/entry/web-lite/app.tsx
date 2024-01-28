@@ -17,10 +17,10 @@ import './styles.less';
 // 视图和slot插槽的对应关系
 const layoutConfig = {
   [SlotLocation.top]: {
-    modules: ['@opensumi/ide-menu-bar'],
+    modules: ['test-toolbar'],
   },
   [SlotLocation.action]: {
-    modules: [''],
+    modules: [],
   },
   [SlotLocation.left]: {
     modules: ['@opensumi/ide-explorer', 'test-view'],
