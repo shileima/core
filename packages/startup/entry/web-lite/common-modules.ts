@@ -19,6 +19,7 @@ import { OutlineModule } from '@opensumi/ide-outline/lib/browser';
 import { OutputModule } from '@opensumi/ide-output/lib/browser';
 import { OverlayModule } from '@opensumi/ide-overlay/lib/browser';
 import { PreferencesModule } from '@opensumi/ide-preferences/lib/browser';
+import { BuitinServicesSampleModule } from '@opensumi/ide-project-init/lib/browser';
 import { QuickOpenModule } from '@opensumi/ide-quick-open/lib/browser';
 import { StatusBarModule } from '@opensumi/ide-status-bar/lib/browser';
 import { StorageModule } from '@opensumi/ide-storage/lib/browser';
@@ -28,7 +29,6 @@ import { WorkspaceModule } from '@opensumi/ide-workspace/lib/browser';
 import { WorkspaceEditModule } from '@opensumi/ide-workspace-edit/lib/browser';
 
 import { BrowserFileSchemeModule } from './lite-module/overrides/browser-file-scheme';
-
 
 export const CommonBrowserModules: ConstructorOf<BrowserModule>[] = [
   FileServiceClientModule,
@@ -59,4 +59,5 @@ export const CommonBrowserModules: ConstructorOf<BrowserModule>[] = [
   OutlineModule,
   ExtensionModule,
   CustomLeftModule,
+  BuitinServicesSampleModule,
 ];

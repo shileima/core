@@ -179,6 +179,9 @@
     },
     {
       "path": "./references/tsconfig.custom-left.json"
+    },
+    {
+      "path": "./references/tsconfig.project-init.json"
     }
   ]
 }
