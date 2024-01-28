@@ -57,9 +57,7 @@ export const AccordionContainer = observer(
         id={containerId}
         resizeKeep={false}
         useDomSize={allCollapsed}
-        // ugly solution 编译后，原生模块依赖@opensumi-ide-main-layout 会报错，EDirection 找不到，这里暂时固定配置（从上而下排列）
-        // direction={alignment === 'horizontal' ? EDirection.LeftToRight : EDirection?.TopToBottom}
-        direction={'top-to-bottom'}
+        direction={alignment === 'horizontal' ? EDirection.LeftToRight : EDirection.TopToBottom}
       >
         {accordionService.visibleViews.map((view, index) => {
           const viewState: SectionState = accordionService.getViewState(view.id);

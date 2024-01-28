@@ -519,54 +519,17 @@ export class TabbarService extends WithEventBus {
     });
   }
 
-  // 设置正在拖动的模块
-  setDraggingModule(module) {
-    // @ts-ignore
-    window.draggingModule = module;
-  }
-  // 获取正在拖动的模块
-  getDraggingModule() {
-    // @ts-ignore
-    return window.draggingModule;
-  }
-
   // drag & drop
   handleDragStart(e: React.DragEvent, containerId: string) {
     e.dataTransfer.setData('containerId', containerId);
-
-    const source = e.dataTransfer.getData('containerId');
-    const containers = this.visibleContainers;
-    const draggingModule = containers.find((containerInfo: any) => source === containerInfo.options.containerId);
-    this.setDraggingModule(draggingModule);
   }
-
   handleDrop(e: React.DragEvent, target: string) {
     if (e.dataTransfer.getData('containerId')) {
       const source = e.dataTransfer.getData('containerId');
       const containers = this.visibleContainers;
       const sourceIndex = containers.findIndex((containerInfo) => source === containerInfo.options!.containerId);
       const targetIndex = containers.findIndex((containerInfo) => target === containerInfo.options!.containerId);
-      //   this.doInsertTab(containers, sourceIndex, targetIndex);
-      if (sourceIndex === -1 || targetIndex === -1) {
-        const currentDraggingModule = this.getDraggingModule();
-        const { component, activateKeyBinding, containerId, iconClass, priority, title } =
-          currentDraggingModule.options;
-        const views = currentDraggingModule.views;
-        this.registerContainer(source, {
-          views,
-          options: {
-            component,
-            activateKeyBinding,
-            containerId,
-            iconClass,
-            priority,
-            title,
-          },
-        });
-      } else {
-        this.doInsertTab(containers, sourceIndex, targetIndex);
-      }
-
+      this.doInsertTab(containers, sourceIndex, targetIndex);
       this.storeState();
     }
   }

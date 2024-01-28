@@ -1,0 +1,9 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "../../../packages/custom-left/src",
+    "outDir": "../../../packages/custom-left/lib"
+  },
+  "include": ["../../../packages/custom-left/src"],
+  "exclude": ["../../../packages/custom-left/__mocks__"]
+}

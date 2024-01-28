@@ -11,12 +11,10 @@ import { VIEW_CONTAINERS } from '@opensumi/ide-core-browser/lib/layout/view-id';
 import { IProgressService } from '@opensumi/ide-core-browser/lib/progress';
 
 import { IMainLayoutService } from '../../common';
-import { titleMap } from '../config';
 
 import { TabbarConfig } from './renderer.view';
 import styles from './styles.module.less';
 import { TabbarService, TabbarServiceFactory } from './tabbar.service';
-
 
 function splitVisibleTabs(containers: ComponentRegistryInfo[], tabSize: number, availableSize: number) {
   const visibleCount = Math.floor(availableSize / tabSize);
@@ -171,49 +169,31 @@ export const IconTabView: React.FC<{ component: ComponentRegistryInfo }> = obser
   const progressService: IProgressService = useInjectable(IProgressService);
   const keybindingRegistry: KeybindingRegistry = useInjectable(KeybindingRegistry);
   const inProgress = progressService.getIndicator(component.options?.containerId || '')?.progressModel.show;
-  const options = component.options;
-  const { containerId = '' } = options || {};
 
   const title = React.useMemo(() => {
-    // const customTitle = titleMap[containerId]?.title || "";
-    const customTitle = titleMap?.[containerId]?.title || '';
-
+    const options = component.options;
     if (options?.activateKeyBinding) {
-      return `${customTitle || options?.title} (${keybindingRegistry.acceleratorForKeyString(
-        options.activateKeyBinding,
-        '+',
-      )})`;
+      return `${options?.title} (${keybindingRegistry.acceleratorForKeyString(options.activateKeyBinding, '+')})`;
     }
-    return customTitle || options?.title;
+    return options?.title;
   }, [component]);
-
-  const customIcon = titleMap?.[containerId]?.icon || '';
 
   return (
     <div className={styles.icon_tab}>
-      {customIcon && <i className={customIcon + ' ' + styles.xboticon}></i>}
-      {!customIcon && <div className={clsx(component.options?.iconClass, 'activity-icon')} title={title}></div>}
-      {!customIcon &&
-        (inProgress ? (
-          <>
-            <Badge className={styles.tab_badge}>
-              <span className={styles.icon_wrapper}>
-                <Icon icon='time-circle' />
-              </span>
-            </Badge>
-          </>
-        ) : (
-          component.options?.badge && (
-            <>
-              <div className={clsx(component.options?.iconClass, 'activity-icon')} title={title}></div>
-              <Badge className={styles.tab_badge}>
-                {parseInt(component.options.badge, 10) > 99 ? '99+' : component.options.badge}
-              </Badge>
-            </>
-          )
-        ))}
-
-      <div className={styles.active_title}>{title}</div>
+      <div className={clsx(component.options?.iconClass, 'activity-icon')} title={title}></div>
+      {inProgress ? (
+        <Badge className={styles.tab_badge}>
+          <span className={styles.icon_wrapper}>
+            <Icon icon='time-circle' />
+          </span>
+        </Badge>
+      ) : (
+        component.options?.badge && (
+          <Badge className={styles.tab_badge}>
+            {parseInt(component.options.badge, 10) > 99 ? '99+' : component.options.badge}
+          </Badge>
+        )
+      )}
     </div>
   );
 });
@@ -254,11 +234,11 @@ export const RightTabbarRenderer: React.FC = () => {
       onContextMenu={tabbarService.handleContextMenu}
     >
       <TabbarViewBase
-        tabSize={56}
+        tabSize={48}
         MoreTabView={IconElipses}
         tabClassName={styles.right_tab}
         TabView={IconTabView}
-        barSize={56}
+        barSize={48}
         panelBorderSize={1}
       />
     </div>

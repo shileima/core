@@ -1,7 +1,7 @@
 {
-  "name": "@opensumi/ide-main-layout",
+  "name": "@opensumi/ide-custom-left",
   "version": "2.26.8",
-  "description": "@opensumi/ide-main-layout",
+  "description": "custom bar for left",
   "files": [
     "lib",
     "src"
@@ -11,7 +11,7 @@
   "typings": "lib/index.d.ts",
   "scripts": {
     "prepublishOnly": "yarn run build",
-    "build": "tsc --build ../../configs/ts/references/tsconfig.main-layout.json"
+    "build": "tsc --build ../../configs/ts/references/tsconfig.custom-left.json"
   },
   "repository": {
     "type": "git",

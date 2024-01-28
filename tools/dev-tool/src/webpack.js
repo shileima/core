@@ -20,6 +20,10 @@ const reactDOMPath = path.resolve(path.join(__dirname, '../../../node_modules/re
 const tsConfigPath = path.join(__dirname, '../../../tsconfig.json');
 const HOST = process.env.HOST || '127.0.0.1';
 const PORT = process.env.IDE_FRONT_PORT || 8080;
+const isDevelopment =
+  process.env['NODE_ENV'] === undefined ||
+  process.env['NODE_ENV'] === 'development' ||
+  process.env['NODE_ENV'] === 'dev';
 
 const defaultWorkspace = path.join(__dirname, '../../workspace');
 fse.mkdirpSync(defaultWorkspace);
@@ -181,6 +185,12 @@ exports.createWebpackConfig = function (dir, entry, extraConfig) {
       plugins: [
         new HtmlWebpackPlugin({
           template: __dirname + '/index.html',
+          templateParameters: {
+            cdnBase: isDevelopment
+              ? ''
+              : 'https://msstest.sankuai.com/static-test01/com.sankuai.waimaiqafc.xbot.fe/ide/',
+            uniqueTime: new Date().getTime(),
+          },
         }),
 
         new MiniCssExtractPlugin({
