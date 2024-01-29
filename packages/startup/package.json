@@ -24,7 +24,8 @@
     "bundle:standard:analysis": "cross-env analysis=1 yarn run bundle:standard",
     "bundle:lite": "cross-env NODE_ENV=production webpack --config webpack.lite.config.js",
     "bundle:lite:stats": "cross-env NODE_ENV=production webpack --profile --config webpack.lite.config.js --json > stats.json",
-    "bundle:lite:analysis": "cross-env analysis=1 yarn run bundle:lite"
+    "bundle:lite:analysis": "cross-env analysis=1 yarn run bundle:lite",
+    "deploy": "webstatic deploy --appkey=com.sankuai.waimaiqafc.xbot.fe --artifact=dist --swimlane=v2 --env=test --token=cdf88f21-06c4-41d4-8ecb-85238f4600cc"
   },
   "repository": {
     "type": "git",
